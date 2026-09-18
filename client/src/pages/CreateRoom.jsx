@@ -30,7 +30,8 @@ export function CreateRoom() {
 
     try {
       const chosenName = roomTitle.trim() || `${cleanUsername}'s Room`;
-      const response = await fetch('/api/rooms/create', {
+      const serverUrl = import.meta.env.VITE_SERVER_URL || 'https://chatting-emou.onrender.com';
+      const response = await fetch(`${serverUrl}/api/rooms/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: chosenName }),

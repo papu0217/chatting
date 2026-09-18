@@ -31,7 +31,8 @@ export function JoinRoom() {
   // Fetch active rooms from server
   const fetchActiveRooms = async () => {
     try {
-      const res = await fetch('/api/rooms');
+      const serverUrl = import.meta.env.VITE_SERVER_URL || 'https://chatting-emou.onrender.com';
+      const res = await fetch(`${serverUrl}/api/rooms`);
       const data = await res.json();
       if (data.success && Array.isArray(data.rooms)) {
         setActiveRooms(data.rooms);

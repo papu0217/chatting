@@ -16,10 +16,8 @@ export function useWebSocket({ roomId, userId, username, avatarSeed, onMessage, 
   }, [onMessage]);
 
   const getWsUrl = useCallback(() => {
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    // When running in Vite dev server, server is on port 5000
-    const host = window.location.hostname;
-    return `${protocol}//${host}:5000`;
+    const serverUrl = import.meta.env.VITE_SERVER_URL || 'https://chatting-emou.onrender.com';
+    return serverUrl.replace(/^http/, 'ws');
   }, []);
 
   const sendMessage = useCallback((data) => {
