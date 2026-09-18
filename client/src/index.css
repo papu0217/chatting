@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    height: 100%;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-slate-950 text-slate-100 min-h-screen font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  /* Prevent iOS Safari from zooming in on input focus when font-size < 16px */
+  input, textarea, select {
+    font-size: 16px;
+  }
+  @screen sm {
+    input, textarea, select {
+      font-size: 0.875rem; /* 14px on larger screens */
+    }
+  }
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+/* Video element object-fit fix */
+video {
+  transform: rotateY(0deg);
+}
+video.local-video {
+  transform: scaleX(-1); /* mirror local self-view */
+}

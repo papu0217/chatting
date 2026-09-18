@@ -1,0 +1,22 @@
+{
+  "name": "pulse-chat-video-calling",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Real-time Chatting and WebRTC Video Calling Application with React and WebSocket",
+  "scripts": {
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "start": "node server/server.js"
+  },
+  "keywords": [
+    "react",
+    "websocket",
+    "webrtc",
+    "video-call",
+    "chat-room",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT"
+}
